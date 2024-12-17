@@ -1,0 +1,54 @@
+mode: "debug"
+port: 8080
+name: "MyApp"
+version: "1.0.0"
+start_time: "2024-10-09T10:00:00Z"
+machine_id: 1
+smms_token: "" # 敏感信息
+
+log:
+  level: "info"
+  filename: "app.log"
+  max_size: 100
+  max_age: 30
+  max_backups: 10
+
+mysql:
+  host: "127.0.0.1"
+  user: ""
+  password: ""
+  dbname: "aidraw"
+  port: 3306
+  max_open_conns: 20
+  max_idle_conns: 10
+
+redis:
+  host: "127.0.0.1"
+  password: ""
+  port: 6379
+  db: 0
+  pool_size: 10
+  min_idle_conns: 5
+  default_ttl: 1440
+
+
+rabbitmq:
+  url: "amqp://<your rabbitmq login name>:<your password>@localhost:5672/"
+  queues: # 声明多个队列
+    - name: "process_image"                # 队列1
+      exchange: "ai_tasks"                 # 绑定的交换机
+      routing_key: "image.process"         # 路由键
+    - name: "upload_image"                 # 队列2
+      exchange: "ai_tasks"                 # 绑定的交换机
+      routing_key: "image.upload"          # 路由键
+
+oss:
+  region: "cn-beijing"
+  bucket: "your endpoint name"
+  endpoint: "https://<your endpoint name>.oss-cn-beijing.aliyuncs.com"
+  accessKeyID: ""
+  accessKeySecret: ""
+
+
+
+
