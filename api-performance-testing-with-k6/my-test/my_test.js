@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
-import {generateImage, generateRandomPrompt, generateUniqueUsername,generateUniqueEmail} from "./dynamic_data.js";
+import {generateImage, generateRandomPrompt, generateUniqueUsername,generateUniqueEmail} from "./utils.js";
 
 // 配置接口的基本 URL
 const BASE_URL = 'http://localhost:8080/api/v2';
